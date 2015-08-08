@@ -12,6 +12,8 @@
 		1406F9261B760F93000667AD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1406F9251B760F93000667AD /* Images.xcassets */; };
 		1406F9291B760F93000667AD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1406F9271B760F93000667AD /* LaunchScreen.xib */; };
 		1406F9351B760F94000667AD /* PlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406F9341B760F94000667AD /* PlayTests.swift */; };
+		144020421B767A720070748B /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 144020401B767A720070748B /* DBChooser.bundle */; };
+		144020431B767A720070748B /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144020411B767A720070748B /* DBChooser.framework */; };
 		14D3280E1B7612CB00BCC645 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D3280D1B7612CB00BCC645 /* Track.swift */; };
 		14D328101B7612D300BCC645 /* TracksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D3280F1B7612D300BCC645 /* TracksController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,9 @@
 		1406F92E1B760F94000667AD /* PlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1406F9331B760F94000667AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1406F9341B760F94000667AD /* PlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTests.swift; sourceTree = "<group>"; };
+		144020401B767A720070748B /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
+		144020411B767A720070748B /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
+		14CB04E21B767F7B003C575F /* Play-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play-Bridging-Header.h"; sourceTree = "<group>"; };
 		14D3280D1B7612CB00BCC645 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		14D3280F1B7612D300BCC645 /* TracksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TracksController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144020431B767A720070748B /* DBChooser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +85,7 @@
 		1406F91D1B760F93000667AD /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				1440203E1B767A690070748B /* Vendor */,
 				1406F9201B760F93000667AD /* AppDelegate.swift */,
 				14D3280F1B7612D300BCC645 /* TracksController.swift */,
 				14D3280D1B7612CB00BCC645 /* Track.swift */,
@@ -86,6 +93,7 @@
 				1406F9271B760F93000667AD /* LaunchScreen.xib */,
 				1406F9221B760F93000667AD /* Play.xcdatamodeld */,
 				1406F91E1B760F93000667AD /* Supporting Files */,
+				14CB04E21B767F7B003C575F /* Play-Bridging-Header.h */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -113,6 +121,23 @@
 				1406F9331B760F94000667AD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1440203E1B767A690070748B /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				1440203F1B767A690070748B /* DBChooser */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		1440203F1B767A690070748B /* DBChooser */ = {
+			isa = PBXGroup;
+			children = (
+				144020401B767A720070748B /* DBChooser.bundle */,
+				144020411B767A720070748B /* DBChooser.framework */,
+			);
+			path = DBChooser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +223,7 @@
 			files = (
 				1406F9291B760F93000667AD /* LaunchScreen.xib in Resources */,
 				1406F9261B760F93000667AD /* Images.xcassets in Resources */,
+				144020421B767A720070748B /* DBChooser.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,9 +363,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Play/Vendor/DBChooser",
+				);
 				INFOPLIST_FILE = Play/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Play/Play-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -347,9 +381,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Play/Vendor/DBChooser",
+				);
 				INFOPLIST_FILE = Play/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Play/Play-Bridging-Header.h";
 			};
 			name = Release;
 		};
