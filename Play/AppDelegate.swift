@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window!.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible()
 
         let tracksController = TracksController()
         let navigationController = UINavigationController(rootViewController: tracksController)
