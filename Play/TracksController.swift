@@ -10,33 +10,29 @@ class TracksController: UITableViewController {
 
     func addAction() {
         DBChooser.defaultChooser().openChooserForLinkType(DBChooserLinkTypeDirect, fromViewController: self) { (results: [AnyObject]!) -> Void in
-            if (results.count > 0) {
-                print(results.description)
+            if let items = results as? [DBChooserResult] {
+                for item in items {
+                    // Save file to Core Data
+                    print("")
+                    print("link: \(item.link)")
+                    print("name: \(item.name)")
+
+                    let localURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as NSURL?
+                    let destinationURL = localURL?.URLByAppendingPathComponent(item.link.lastPathComponent!)
+
+                    if NSFileManager().fileExistsAtPath((destinationURL?.path)!) {
+                        print("The file already exists at path")
+                        // Mark file as saved
+                    } else if let audioData = NSData(contentsOfURL: item.link) {
+                        if (audioData).writeToURL(destinationURL!, atomically: true) {
+                            print("file saved")
+                            // Mark file as saved
+                        } else {
+                            print("error saving file")
+                        }
+                    }
+                }
             }
         }
     }
 }
-
-/*
-@interface DBChooserResult : NSObject
-
-// URL to access the file, which varies depending on the link type specified when the
-// Chooser was triggered
-@property NSURL *link;
-
-// Name of the file
-@property NSString *name;
-
-// Size of the file in bytes
-@property long long size;
-
-// URL to a 64x64px icon for the file based on the file's extension.
-@property NSURL *iconURL;
-
-// Set of thumbnail URLs generated when the user selects images and videos. It returns
-// three sizes with the keys: 64x64px, 200x200px, and 640x480px. If the user didn't
-// select an image or video, no thumbnails will be included.
-@property NSDictionary *thumbnails;
-
-@end
-*/
