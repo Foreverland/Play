@@ -1,7 +1,6 @@
-import Foundation
 import UIKit
 
-class TracksController: UITableViewController {
+class TracksController: UITableViewController, Selectable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -9,7 +8,10 @@ class TracksController: UITableViewController {
     }
 
     func addAction() {
-        DBChooser.defaultChooser().openChooserForLinkType(DBChooserLinkTypeDirect, fromViewController: self) { (results: [AnyObject]!) -> Void in
+        let newTrackController = NewTrackController()
+        self.navigationController?.presentViewController(newTrackController, animated: true, completion: nil)
+
+        /*DBChooser.defaultChooser().openChooserForLinkType(DBChooserLinkTypeDirect, fromViewController: self) { (results: [AnyObject]!) -> Void in
             if let items = results as? [DBChooserResult] {
                 for item in items {
                     // Save file to Core Data
@@ -33,6 +35,10 @@ class TracksController: UITableViewController {
                     }
                 }
             }
-        }
+        }*/
+    }
+
+    func didSelectTrack() {
+        print("selected track")
     }
 }

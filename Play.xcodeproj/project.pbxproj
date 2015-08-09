@@ -14,6 +14,8 @@
 		1406F9351B760F94000667AD /* PlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406F9341B760F94000667AD /* PlayTests.swift */; };
 		144020421B767A720070748B /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 144020401B767A720070748B /* DBChooser.bundle */; };
 		144020431B767A720070748B /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 144020411B767A720070748B /* DBChooser.framework */; };
+		14D06A321B77404B00DED7FC /* NewTrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D06A311B77404B00DED7FC /* NewTrackController.swift */; };
+		14D06A331B77404B00DED7FC /* NewTrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D06A311B77404B00DED7FC /* NewTrackController.swift */; };
 		14D3280E1B7612CB00BCC645 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D3280D1B7612CB00BCC645 /* Track.swift */; };
 		14D328101B7612D300BCC645 /* TracksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D3280F1B7612D300BCC645 /* TracksController.swift */; };
 		F27EC94E2FC3D2BEBB1B8374 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C3A32058BADE6E5D22783EA /* libPods.a */; };
@@ -43,6 +45,7 @@
 		144020401B767A720070748B /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
 		144020411B767A720070748B /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
 		14CB04E21B767F7B003C575F /* Play-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play-Bridging-Header.h"; sourceTree = "<group>"; };
+		14D06A311B77404B00DED7FC /* NewTrackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTrackController.swift; sourceTree = "<group>"; };
 		14D3280D1B7612CB00BCC645 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		14D3280F1B7612D300BCC645 /* TracksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TracksController.swift; sourceTree = "<group>"; };
 		7C3A32058BADE6E5D22783EA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +98,7 @@
 				1440203E1B767A690070748B /* Vendor */,
 				1406F9201B760F93000667AD /* AppDelegate.swift */,
 				14D3280F1B7612D300BCC645 /* TracksController.swift */,
+				14D06A311B77404B00DED7FC /* NewTrackController.swift */,
 				14D3280D1B7612CB00BCC645 /* Track.swift */,
 				1406F9251B760F93000667AD /* Images.xcassets */,
 				1406F9271B760F93000667AD /* LaunchScreen.xib */,
@@ -302,6 +306,7 @@
 			files = (
 				1406F9211B760F93000667AD /* AppDelegate.swift in Sources */,
 				14D328101B7612D300BCC645 /* TracksController.swift in Sources */,
+				14D06A321B77404B00DED7FC /* NewTrackController.swift in Sources */,
 				1406F9241B760F93000667AD /* Play.xcdatamodeld in Sources */,
 				14D3280E1B7612CB00BCC645 /* Track.swift in Sources */,
 			);
@@ -311,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D06A331B77404B00DED7FC /* NewTrackController.swift in Sources */,
 				1406F9351B760F94000667AD /* PlayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
