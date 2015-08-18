@@ -9,6 +9,7 @@ class TracksController: UITableViewController, Selectable {
 
     func addAction() {
         let newTrackController = NewTrackController()
+        newTrackController.delegate = self
         self.navigationController?.presentViewController(newTrackController, animated: true, completion: nil)
 
         /*DBChooser.defaultChooser().openChooserForLinkType(DBChooserLinkTypeDirect, fromViewController: self) { (results: [AnyObject]!) -> Void in
@@ -38,7 +39,7 @@ class TracksController: UITableViewController, Selectable {
         }*/
     }
 
-    func didSelectTrack() {
-        print("selected track")
+    func didAddTrack(title: String) {
+        print(title)
     }
 }
